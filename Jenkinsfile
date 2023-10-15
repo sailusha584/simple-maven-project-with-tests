@@ -7,7 +7,7 @@ pipeline {
     stages{
         stage('Git'){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ramalaxmibandi/jenkins-docker']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sailusha584/simple-maven-project-with-tests']]])
             }
         }
         stage('Build docker image'){

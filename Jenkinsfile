@@ -3,9 +3,7 @@ pipeline {
   environment {
     DOCKERHUB_CREDENTIALS = credentials('DOCKER_HUB_CREDS')
   }
-    tools{
-        maven 'mymaven'
-    }
+ 
     stages{
         stage('Build Maven'){
             steps{

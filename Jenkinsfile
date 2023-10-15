@@ -13,7 +13,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'sudo docker build -t sailusha/jenkins-repo:1.0 .'
+                    sh 'docker build -t sailusha/jenkins-repo:1.0 .'
                 }
             }
         }
@@ -24,7 +24,7 @@ pipeline {
     }
        stage('Push image to Hub') {
            steps {
-                sh 'sudo docker push sailusha/jenkins-repo:1.0'
+                sh 'docker push sailusha/jenkins-repo:1.0'
                }
            }
 

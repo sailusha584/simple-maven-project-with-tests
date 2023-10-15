@@ -1,7 +1,7 @@
 pipeline {
     agent any
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+    DOCKERHUB_CREDENTIALS = credentials('DOCKER_HUB_CREDS')
   }
     tools{
         maven 'mymaven'
@@ -16,7 +16,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t ramalaxmi/devops-integration:1.0 .'
+                    sh 'docker build -t sailusha/jenkins-repo:1.0 .'
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
     }
        stage('Push image to Hub') {
            steps {
-                sh 'docker push ramalaxmi/devops-integration:1.0'
+                sh 'docker push sailusha/jenkins-repo:1.0'
                }
            }
 

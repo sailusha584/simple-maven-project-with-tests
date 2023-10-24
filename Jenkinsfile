@@ -5,15 +5,10 @@ pipeline {
   }
  
     stages{
-        stage('Git'){
-            steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sailusha584/simple-maven-project-with-tests']]])
-            }
-        }
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t sailusha/jenkins-repo:1.0 .'
+                    sh 'docker build -t sailusha/jenkins-new:1.0 .'
                 }
             }
         }
@@ -24,7 +19,7 @@ pipeline {
     }
        stage('Push image to Hub') {
            steps {
-                sh 'docker push sailusha/jenkins-repo:1.0'
+                sh 'docker push sailusha/jenkins-new:1.0'
                }
            }
 
